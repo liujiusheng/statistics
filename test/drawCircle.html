@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>画圆测试</title>
+		<script src="../src/geography.js"></script>
+        <script>
+            window.onload = function(){
+                var c=document.getElementById("drawCircle");
+                var ctx=c.getContext("2d");
+                ctx.fillStyle="#FF0000";
+                var x = 100;
+                var y = 100;
+                var r = 50;
+                var ang1 = 0;
+                var ang2 = 360;
+                var points = geography.drawCircle(x,y,r,ang1,ang2);
+                console.log(points);
+                ctx.beginPath();
+                //ctx.moveTo(x,y);
+                for(var i in points){
+                    ctx.lineTo(points[i].x,points[i].y);
+                }
+                ctx.stroke();
+            };
+        </script>
+	</head>
+	<body id="">
+        <canvas id="drawCircle" width="1200"height="400"></canvas>
+	</body>
+</html>
